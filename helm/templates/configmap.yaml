@@ -4,40 +4,40 @@ metadata:
   name: discuit-config
 data:
   config.yaml: |-
-    siteName: Discuit
-    siteDescription: A free and open-source community platform.
-    emailContact:
-    twitterURL:
-    discordURL:
-    githubURL: https://github.com/discuitnet/discuit
-    substackURL:
+    siteName: {{ .Values.discuit.siteName }}
+    siteDescription: {{ .Values.discuit.siteDescription }}
+    emailContact: {{ .Values.discuit.emailContact }}
+    twitterURL: {{ .Values.discuit.twitterURL }}
+    discordURL: {{ .Values.discuit.discordURL }}
+    githubURL: {{ .Values.discuit.githubURL }}
+    substackURL: {{ .Values.discuit.substackURL }}
 
-    isDevelopment: true
-    hmacSecret: AB582347FE2135CAB143
-    noLogToFile: false
-    csrfOff: false
+    isDevelopment: {{ .Values.discuit.isDevelopment }}
+    hmacSecret: {{ .Values.discuit.hmacSecret }}
+    noLogToFile: {{ .Values.discuit.noLogToFile }}
+    csrfOff: {{ .Values.discuit.csrfOff }}
 
     addr: :8080
-    sessionCookieName: SID
+    sessionCookieName: {{ .Values.discuit.sessionCookieName }}
 
     # MariaDB configuration:
-    dbAddr: 127.0.0.1 # Required
-    dbUser: discuit # Required
-    dbPassword: discuit # Required
-    dbName: discuit # Required
+    dbAddr: {{ .Values.mariadb.host }} # Required
+    dbUser: {{ .Values.mariadb.user }} # Required
+    dbPassword: {{ .Values.mariadb.passwd }} # Required
+    dbName: {{ .Values.mariadb.databaseName }} # Required
 
     # ReCAPTCHA or hCaptcha secret and site-key:
-    captchaSecret:
-    captchaSiteKey:
-    disableRateLimits: false
+    captchaSecret: {{ .Values.discuit.captchaSecret }}
+    captchaSiteKey: {{ .Values.discuit.captchaSiteKey }}
+    disableRateLimits: {{ .Values.discuit.disableRateLimits }}
 
     # TLS certificate key-pair paths:
     certFile:
     keyFile:
 
-    defaultFeedSort: hot
-    disableForumCreation: true
-    forumCreationReqPoints: 10
-    maxForumsPerUser: 10
+    defaultFeedSort: {{ .Values.discuit.defaultFeedSort }}
+    disableForumCreation: {{ .Values.discuit.disableForumCreation }}
+    forumCreationReqPoints: {{ .Values.discuit.forumCreationReqPoints }}
+    maxForumsPerUser: {{ .Values.discuit.maxForumsPerUser }}
     imagesFolderPath: "images"
      
